@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { useWarsawStore } from '../stores/WarsawStore'
-import ErrorBoundary from './ErrorBoundary.vue'
+  import { useWarsawStore } from '../stores/WarsawStore'
+  import ErrorBoundary from './ErrorBoundary.vue'
 
-const store = useWarsawStore()
+  const store = useWarsawStore()
 
-const inputFields = [
-  ['carbs', 'Carbohydrates (g)'],
-  ['fat', 'Fat (g)'],
-  ['protein', 'Protein (g)'],
-  ['icr', 'ICR (g/unit)'],
-  ['isf', 'ISF (mg/dL/unit)'],
-  ['fpuKcal', 'FPU kcal (per unit insulin)']
-] as const
+  const inputFields = [
+    ['carbs', 'Carbohydrates (g)'],
+    ['fat', 'Fat (g)'],
+    ['protein', 'Protein (g)'],
+    ['icr', 'ICR (g/unit)'],
+    ['isf', 'ISF (mg/dL/unit)'],
+    ['fpuKcal', 'FPU kcal (per unit insulin)']
+  ] as const
 
-const handleInput = (field: string, event: Event) => {
-  const value = parseFloat((event.target as HTMLInputElement).value) || 0
-  store.updateInput(field as keyof typeof store.inputs, value)
-}
+  const handleInput = (field: string, event: Event) => {
+    const value = parseFloat((event.target as HTMLInputElement).value) || 0
+    store.updateInput(field as keyof typeof store.inputs, value)
+  }
 </script>
 
 <template>
